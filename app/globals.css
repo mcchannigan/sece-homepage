@@ -4,8 +4,13 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
+  --border-rgb: 25, 25, 25;
+  --shadow-rgb: 75, 75, 75;
+  --box-background-rgb: 255, 255, 255;
+  --login-rgb: 46, 101, 76;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --padding: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,10 +23,144 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-end-rgb));
+}
+
+#main-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: space-between;
+  max-width: 70rem;
+  margin: auto;
+  height: 100%;
+  background: rgb(var(--background-start-rgb));
+  /*box-shadow: 0 0.15rem 0.15rem rgb(var(--shadow-rgb));*/
+}
+
+#campus-links {
+  width: 100%;
+  padding: var(--padding);
+}
+
+#campus-links ul {
+  columns: 25rem;
+}
+
+#announcements {
+  width: 100%;
+}
+
+.login-button {
+  background-color: rgb(var(--login-rgb));
+  color: rgb(var(--background-end-rgb));
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  position: sticky;
+  /*box-shadow: 0 0.15rem 0.15rem rgb(var(--shadow-rgb));*/
+}
+
+.login-button a {
+  color: rgb(var(--background-end-rgb));
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: var(--padding);
+}
+
+.section-links-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.top-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--padding);
+}
+
+.link-section {
+  width: 100%;
+  padding: var(--padding);
+}
+
+.campus-info-box {
+  border: 1px solid rgb(var(--background-start-rgb));
+  background-color: rgb(var(--box-background-rgb));
+  padding: var(--padding);
+  /*box-shadow: 0.15rem 0.15rem 0.15rem rgb(var(--shadow-rgb));*/
+}
+
+.campus-info-box:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.campus-info-box:not(:first-child) {
+  border-top: none;
+}
+
+.campus-info-box:last-child {
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.campus-info-box button {
+  border: none;
+  color: rgb(var(--border-rgb));
+  font-weight: bold;
+  width: 1rem;
+}
+
+.org-contact-info {
+  display: block;
+  position: absolute;
+  height: 0;
+  max-height: 0;
+  left: -9999px;
+  opacity: 0;
+
+  padding-left: 1.5rem;
+
+  transition: all 0.5s;
+}
+
+.org-contact-info.active {
+  position: relative;
+  left: auto;
+  height: auto;
+  max-height: 99em;
+  opacity: 1;
+}
+
+@media (min-width: 45rem) {
+  #announcements {
+    margin-left: 1rem;
+  }
+  
+  .section-links-wrapper {
+    flex-direction: row;
+  }
+
+  .top-wrapper {
+    flex-direction: row;
+  }
+
+  .login-button {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    
+  }
+
+  .login-button a {
+    padding-top: 1rem;
+  }
 }
