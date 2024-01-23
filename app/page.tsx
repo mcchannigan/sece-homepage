@@ -9,22 +9,23 @@ import { useState, useEffect } from 'react';
 export default function Home() {
   return (
     <main id="main-container">
+      <span className="header-wrapper">
+        <h1>University of Hawai&#699;i System: <strong><em>sece</em></strong></h1>
+        <p>Welcome to our online job services for students and employers.</p>
+      </span>
+      <span className="login-button"><a href="https://sece.its.hawaii.edu/sece">Log In Here!</a></span>
       <div className="top-wrapper">
-        <span className="header-wrapper">
-          <h1>University of Hawai&#699;i System</h1>
-          <p>Welcome to our online job services for students and employers.</p>
-        </span>
-        <span className="login-button"><a href="https://sece.its.hawaii.edu/sece">Log In Here!</a></span>
-      </div>
-      
-        <Announcements/>
         <CampusLinks/>
-      
+        <Announcements/>
+      </div>
       <div className="section-links-wrapper">
         <LinkSection title='University Employers' linkLocation='home-uh'/>
         <LinkSection title='Non-University Employers' linkLocation='home-nonuh'/>
         <LinkSection title='Students' linkLocation='home-std'/>
       </div>
+      <footer>
+        Copyright &copy; 2024 - University of Hawai&#699;i
+      </footer>
     </main>
   )
 }
@@ -47,7 +48,11 @@ function CampusLinks() {
   if(campusInfoItems.length === 0) {
     // Loading placeholders
     for(let i = 0; i < 10; i++) {
-      campusInfoItems.push(<li className="campus-info-box">Loading...</li>)
+      campusInfoItems.push(
+        <li className="campus-info-box">
+          <span className="text-preloader"/>
+        </li>
+      )
     }
   }
 

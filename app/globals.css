@@ -34,21 +34,21 @@ body {
   max-width: 70rem;
   margin: auto;
   height: 100%;
-  background: rgb(var(--background-start-rgb));
-  /*box-shadow: 0 0.15rem 0.15rem rgb(var(--shadow-rgb));*/
+  background: rgb(var(--background-end-rgb));
 }
 
 #campus-links {
   width: 100%;
-  padding: var(--padding);
-}
-
-#campus-links ul {
-  columns: 25rem;
 }
 
 #announcements {
   width: 100%;
+}
+
+footer {
+  font-size: 0.8rem;
+  color: rgb(var(--shadow-rgb));
+  padding: var(--padding);
 }
 
 .login-button {
@@ -84,6 +84,17 @@ body {
   justify-content: space-between;
   width: 100%;
   padding: var(--padding);
+  background: rgb(var(--background-start-rgb));
+}
+
+.header-wrapper {
+  width: 100%;
+  padding: var(--padding);
+  background: rgb(var(--background-start-rgb));
+}
+
+.section-links-wrapper {
+  background: rgb(var(--background-start-rgb));
 }
 
 .link-section {
@@ -140,6 +151,34 @@ body {
   opacity: 1;
 }
 
+@keyframes placeholderFlash {
+  0% {
+    background-color: rgb(var(--background-start-rgb));
+  }
+  100% {
+    background-color: rgb(var(--background-end-rgb));
+  }
+}
+
+.text-preloader {
+  display: block;
+  width: 50%;
+  height: 1rem;
+  background-color: rgb(var(--background-start-rgb));
+  animation: 1s linear 0s infinite alternate placeholderFlash;
+  margin: 0.15rem 0;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
 @media (min-width: 45rem) {
   #announcements {
     margin-left: 1rem;
@@ -154,13 +193,10 @@ body {
   }
 
   .login-button {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    
-  }
-
-  .login-button a {
-    padding-top: 1rem;
+    width:auto;
+    min-width: 16rem;
+    border-radius: 0.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 }

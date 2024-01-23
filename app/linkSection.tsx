@@ -20,15 +20,22 @@ export default function LinkSection({title, linkLocation} : LinkSectionProps) {
         })()
     }, [])
 
-    const linkListItems = links.map(link => <li key={link['id']}><a href={link['url']} target="_blank" rel="noopener noreferrer">{link['name']}</a></li>);
+    let linkListItems = links.map(link => <li key={link['id']}><a href={link['url']} target="_blank" rel="noopener noreferrer">{link['name']}</a></li>);
+    if(linkListItems.length === 0) {
+        // Loading placeholders
+        for(let i = 0; i < 4; i++) {
+          linkListItems.push(
+            <li>
+              <span className="text-preloader"/>
+            </li>
+          )
+        }
+      }
+
     return (
         <section id={`link-box-${linkLocation}`} className="link-section">
             <h2>{title}</h2>
-            {linkListItems.length === 0 ? (
-                <p>Loading...</p>
-            ) : (
-                <ul>{linkListItems}</ul>
-            )}
+            <ul>{linkListItems}</ul>
         </section>
     )
 }
