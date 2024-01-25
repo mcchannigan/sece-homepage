@@ -1,12 +1,14 @@
 'use client'
 
-import Image from 'next/image'
 import LinkSection from './linkSection'
 import CampusInfo from './campusInfo'
+import ReactModal from 'react-modal';
 import { Status } from './utils'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, MouseEventHandler } from 'react';
+import TimesheetContact from './timesheetContact';
 
 export default function Home() {
+  
   return (
     <main id="main-container">
       <span className="header-wrapper">
@@ -58,7 +60,7 @@ function CampusLinks() {
 
   return (
     <section id="campus-links">
-      <h2>Campus Links</h2>
+      <h2>Campus Links and Contact Info</h2>
       <ul>{campusInfoItems}</ul>
     </section>
   )
@@ -67,6 +69,7 @@ function CampusLinks() {
 function Announcements() {
   const [announcementData, setAnnouncementData] = useState([])
   const [loaded, setLoaded] = useState(Status.PENDING)
+  const [openModal, setOpenModal] = useState(false)
 
   useEffect(() => {
     (async () => {
@@ -84,6 +87,15 @@ function Announcements() {
     })()
   }, [])
 
+  function handleContactInfoOpen(e: React.MouseEvent<HTMLAnchorElement>): void {
+    e.preventDefault()
+    setOpenModal(true)
+  }
+
+  function handleContactInfoClose(): void {
+    setOpenModal(false)
+  }
+
   const announcementItems = announcementData.map(announcement => 
     <li key={announcement['id']}>{announcement['text']}</li>
   )
@@ -94,8 +106,12 @@ function Announcements() {
       <ul>
         <li><strong>SYSTEM UNAVAILABLE WEEKDAYS:</strong> <br/>
           2:00 am - 3:00 am (backup)</li>
-        {loaded ? announcementItems : (<li>Loading...</li>) }
+        {loaded ? announcementItems : (<li><span className="text-preloader"></span></li>) }
       </ul>
+      <a href="#" onClick={handleContactInfoOpen}>Timesheet Contact Info</a>
+      <ReactModal isOpen={openModal} onRequestClose={handleContactInfoClose}>
+        <TimesheetContact/>
+      </ReactModal>
     </section>
   )
 }
