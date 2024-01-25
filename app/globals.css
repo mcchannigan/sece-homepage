@@ -127,6 +127,19 @@ footer {
   padding: var(--padding);
 }
 
+.info-text p {
+  margin: 0.5em 0;
+}
+
+.info-text img {
+  display: inline;
+}
+
+.info-text a {
+  color: rgb(var(--login-rgb));
+  font-weight: bold;
+}
+
 .campus-info-box {
   border: 1px solid rgb(var(--background-start-rgb));
   background-color: rgb(var(--box-background-rgb));

@@ -3,16 +3,17 @@
 export default function TimesheetContact()
 {
     return (
-        <div id="ts-contact">
+        <div id="ts-contact" className="info-text">
             <h2>Contact Information for the Online Timesheet Application</h2>
             <p>Although the Online Timesheet Application has been merged into the Student Employment Application, each has its own help center.
             </p>
             <p>We have provided <strong>"Help"</strong> links throughout the Online Timesheet sections of the application.  Look for
-                <br/><img src="../images/std_question.gif"/> when logged in as a Student or
-                <br/><img src="../images/emp_question.gif"/> when logged in as a Supervisor or Business Office.
-
+                <br/><img src="/std_question.gif"/> when logged in as a Student or
+                <br/><img src="/emp_question.gif"/> when logged in as a Supervisor or Business Office.
+                <br/>
             </p>
-            <p>We also created <strong>"User Guides"</strong> for each role [STD, SUP, BO].</p>
+
+            <p>We also created <strong>User Guides</strong> for each role [STD, SUP, BO].</p>
             <p>They are located on the timesheet tab's main page.
             </p>
             <p>Two distinct email addresses are provided for help:</p>
