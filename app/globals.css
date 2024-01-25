@@ -6,16 +6,16 @@
   --foreground-rgb: 0, 0, 0;
   --border-rgb: 25, 25, 25;
   --shadow-rgb: 75, 75, 75;
-  --box-background-rgb: 255, 255, 255;
+  --box-background-rgb: 245, 243, 245;
   --login-rgb: 46, 101, 76;
   --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-end-rgb: 245, 243, 245;
   --padding: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    --foreground-rgb: 245, 243, 245;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
