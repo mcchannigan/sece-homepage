@@ -1,3 +1,9 @@
+The SECE home page houses links and contact info for each UH campus, announcements, and links to various resources for students, UH employers, and non-UH employers. This app loads campus info, announcements, and links via REST API from the SECE database, allowing for dynamic updates without the need to manually edit HTML.
+
+## API
+
+The API endpoint is configured in the .env (for production) and .env.development (for development) files. The API endpoints are implemented in the 2024-01-11_homepage-api branch on the SECE SVN repository (See HomeApiController class). The development environment assumes that there is a local instance of tomcat running the SECE application at localhost:8443/sece.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
