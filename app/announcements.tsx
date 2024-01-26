@@ -1,3 +1,4 @@
+'use client'
 import { useState, useEffect } from "react"
 import { Status } from "./utils"
 import ReactModal from "react-modal"
@@ -62,7 +63,7 @@ export default function Announcements({data} : CampusLinksProps) {
             <a href="#" onClick={handleSeceContactInfoOpen}><img src="/feather-black/mail.svg" alt="email icon"/> <span><strong><em>sece</em></strong> Contact Info</span></a>
             <a href="#" onClick={handleTsContactInfoOpen}><img src="/feather-black/clock.svg" alt="clock icon"/> <span>Timesheet Contact Info</span></a>
         </span>
-        <ReactModal isOpen={modalState !== ModalState.CLOSED} onRequestClose={handleContactInfoClose}>
+        <ReactModal isOpen={modalState !== ModalState.CLOSED} onRequestClose={handleContactInfoClose} appElement={document.getElementById('main-container')!}>
           {modalState === ModalState.TIMESHEET ? <TimesheetContact/> : <SeceContactInfo data={data}/>}
         </ReactModal>
       </section>
