@@ -177,9 +177,9 @@ footer {
 }
 
 .link-section ul {
-  border: 0.125rem solid rgb(var(--true-blue-rgb));
+  /*border: 0.125rem solid rgb(var(--true-blue-rgb));*/
   border-radius: var(--radius);
-  background-color: rgb(var(--box-background-rgb));
+  background-color: rgb(var(--message-rgb));
 }
 
 .link-section ul li {
@@ -198,7 +198,8 @@ footer {
 }
 
 #link-box-home-uh ul, #link-box-home-nonuh ul {
-  border-color: rgb(var(--plum-rgb));
+  /*border-color: rgb(var(--plum-rgb));*/
+  background-color: #fff1fa;
 }
 
 .info-text p {

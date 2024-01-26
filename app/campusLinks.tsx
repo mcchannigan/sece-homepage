@@ -1,3 +1,4 @@
+'use client'
 import CampusInfo from "./campusInfo"
 
 export interface CampusLinksProps {
