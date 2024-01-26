@@ -15,6 +15,8 @@
   --plum-rgb: 150, 52, 132;
   --padding: 0.5rem;
   --radius: 0.25rem;
+  --link-border-hex: #cdcdcd;
+  --sece-blue-hex: #19467c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,6 +49,7 @@ body {
 
 #announcements {
   width: 100%;
+  margin-bottom: 1rem;
 }
 
 #announcements li {
@@ -105,6 +108,15 @@ footer {
   width: 100%;
 }
 
+.section-links-wrapper ul li {
+  list-style: none;
+	background-image: url('../public/feather-black/chevrons-right.svg');
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 1rem;
+  padding-left: 1.5rem
+}
+
 .top-wrapper {
   display: flex;
   flex-direction: column-reverse;
@@ -135,6 +147,10 @@ footer {
   flex-direction: row;
 }
 
+.contact-wrapper img {
+  display: inline;
+}
+
 .contact-wrapper a span {
   width:100%;
 }
@@ -147,7 +163,8 @@ footer {
 .header-wrapper {
   width: 100%;
   padding: var(--padding);
-  background: rgb(var(--background-start-rgb));
+  background: var(--sece-blue-hex);
+  color: rgb(var(--box-background-rgb));
 }
 
 .section-links-wrapper {
@@ -159,6 +176,31 @@ footer {
   padding: var(--padding);
 }
 
+.link-section ul {
+  border: 0.125rem solid rgb(var(--true-blue-rgb));
+  border-radius: var(--radius);
+  background-color: rgb(var(--box-background-rgb));
+}
+
+.link-section ul li {
+  margin: 0 0.25rem;
+  border-bottom: 1px solid var(--link-border-hex);
+}
+
+.link-section ul li:last-child {
+  border-bottom: none;
+}
+
+.link-section ul li a {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+#link-box-home-uh ul, #link-box-home-nonuh ul {
+  border-color: rgb(var(--plum-rgb));
+}
+
 .info-text p {
   margin: 0.5em 0;
 }
@@ -167,8 +209,8 @@ footer {
   display: inline;
 }
 
-.info-text a {
-  color: rgb(var(--login-rgb));
+.ReactModalPortal a {
+  color: rgb(var(--true-blue-rgb));
   font-weight: bold;
 }
 
@@ -200,6 +242,23 @@ footer {
   width: 1rem;
 }
 
+.campus-contact-list {
+  white-space: pre-wrap;
+}
+
+.campus-contact-list li:first-child {
+  border-top: 1px solid var(--link-border-hex);
+}
+
+.campus-contact-list li {
+  padding: var(--padding);
+  border-bottom: 1px solid var(--link-border-hex);
+}
+
+.campus-contact-list li:nth-child(even) {
+  background-color: rgb(var(--message-rgb));
+}
+
 .org-contact-info {
   display: block;
   position: absolute;
@@ -207,7 +266,7 @@ footer {
   max-height: 0;
   left: -9999px;
   opacity: 0;
-
+  white-space: pre-wrap;
   padding-left: 1.5rem;
 
   transition: all 0.5s;
@@ -219,6 +278,11 @@ footer {
   height: auto;
   max-height: 99em;
   opacity: 1;
+}
+
+.org-contact-info a {
+  color: rgb(var(--true-blue-rgb));
+  font-weight: bold;
 }
 
 @keyframes placeholderFlash {
@@ -236,7 +300,11 @@ footer {
   height: 1rem;
   background-color: rgb(var(--background-start-rgb));
   animation: 1s linear 0s infinite alternate placeholderFlash;
-  margin: 0.15rem 0;
+  margin: 0.25rem 0;
+}
+
+.link-preloader {
+  margin: 0.75rem 0;
 }
 
 h1 {

@@ -25,8 +25,8 @@ export default function LinkSection({title, linkLocation} : LinkSectionProps) {
         // Loading placeholders
         for(let i = 0; i < 4; i++) {
           linkListItems.push(
-            <li>
-              <span className="text-preloader"/>
+            <li key={i}>
+              <span className="text-preloader link-preloader"/>
             </li>
           )
         }

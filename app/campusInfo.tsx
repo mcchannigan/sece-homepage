@@ -22,8 +22,9 @@ export default function CampusInfo({name, url, contactInfo} : CampusInfoProps) {
 
     return (
         <li className="campus-info-box">
-            <button aria-label="Expand campus info" onClick={toggleInfo}>{expanded ? '-' : '+'}</button> <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
-            <span className={orgClass}><Markdown>{contactInfo.replaceAll('\n', '\n\n')}</Markdown></span>
+            <button aria-label="Expand campus info" onClick={toggleInfo}>{expanded ? '-' : '+'}</button> 
+            <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
+            <span className={orgClass}><Markdown>{contactInfo}</Markdown></span>
         </li>
     )
 }
