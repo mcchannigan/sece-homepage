@@ -11,6 +11,8 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 245, 243, 245;
   --message-rgb: 230, 243, 255;
+  --true-blue-rgb: 48, 102, 190;
+  --plum-rgb: 150, 52, 132;
   --padding: 0.5rem;
   --radius: 0.25rem;
 }
@@ -62,6 +64,7 @@ body {
   content: '';
   background-image: url('../public/feather-black/alert-circle.svg');
   background-size: contain;
+  background-repeat: no-repeat;
   display:block;
   position:absolute;
   top: 0.75rem;
@@ -110,6 +113,35 @@ footer {
   width: 100%;
   padding: var(--padding);
   background: rgb(var(--background-start-rgb));
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.contact-wrapper a {
+  display: flex;
+  position: relative;
+  padding: var(--padding);
+  border: 0.125rem solid rgb(var(--plum-rgb));
+  border-radius: var(--radius);
+  background-color: rgb(var(--box-background-rgb));
+  width: 50%;
+  text-align: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.contact-wrapper a span {
+  width:100%;
+}
+
+.contact-wrapper a:first-child {
+  margin-right: 0.5rem;
+  border-color: rgb(var(--true-blue-rgb));
 }
 
 .header-wrapper {

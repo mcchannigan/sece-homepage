@@ -1,11 +1,20 @@
 'use client'
 
 import LinkSection from './linkSection'
-import CampusInfo from './campusInfo'
 import Announcements from './announcements';
 import CampusLinks from './campusLinks';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+  const [campusData, setCampusData] = useState([])
+  useEffect(() => {
+      (async () => {
+          const data = await (
+              await fetch(`${process.env.NEXT_PUBLIC_LINK_ENDPT}/campuses`)
+          ).json()
+          setCampusData(data)
+      })()
+  }, [])
   
   return (
     <main id="main-container">
@@ -15,8 +24,8 @@ export default function Home() {
       </span>
       <span className="login-button"><a href="https://sece.its.hawaii.edu/sece">Log In Here!</a></span>
       <div className="top-wrapper">
-        <CampusLinks/>
-        <Announcements/>
+        <CampusLinks data={campusData}/>
+        <Announcements data={campusData}/>
       </div>
       <div className="section-links-wrapper">
         <LinkSection title='University Employers' linkLocation='home-uh'/>
