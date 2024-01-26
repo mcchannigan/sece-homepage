@@ -14,7 +14,7 @@ enum ModalState {
 export default function Announcements({data} : CampusLinksProps) {
     const [announcementData, setAnnouncementData] = useState([])
     const [loaded, setLoaded] = useState(Status.PENDING)
-    const [openModal, setOpenModal] = useState(ModalState.CLOSED)
+    const [modalState, setModalState] = useState(ModalState.CLOSED)
   
     useEffect(() => {
       (async () => {
@@ -34,20 +34,20 @@ export default function Announcements({data} : CampusLinksProps) {
   
     function handleTsContactInfoOpen(e: React.MouseEvent<HTMLAnchorElement>): void {
       e.preventDefault()
-      setOpenModal(ModalState.TIMESHEET)
+      setModalState(ModalState.TIMESHEET)
     }
 
     function handleSeceContactInfoOpen(e: React.MouseEvent<HTMLAnchorElement>): void {
         e.preventDefault()
-        setOpenModal(ModalState.SECE)
+        setModalState(ModalState.SECE)
       }
   
     function handleContactInfoClose(): void {
-      setOpenModal(ModalState.CLOSED)
+      setModalState(ModalState.CLOSED)
     }
   
     const announcementItems = announcementData.map(announcement => 
-      <li key={announcement['id']}>{announcement['text']}</li>
+      <li key={announcement['id']}>{announcement['message']}</li>
     )
   
     return (
@@ -59,11 +59,11 @@ export default function Announcements({data} : CampusLinksProps) {
           {loaded ? announcementItems : (<li><span className="text-preloader"></span></li>) }
         </ul>
         <span className="contact-wrapper">
-            <a href="#" onClick={handleSeceContactInfoOpen}><span>Campus and <strong><em>sece</em></strong> Contact Info</span></a>
-            <a href="#" onClick={handleTsContactInfoOpen}><span>Timesheet Contact Info</span></a>
+            <a href="#" onClick={handleSeceContactInfoOpen}><img src="/feather-black/mail.svg" alt="email icon"/> <span><strong><em>sece</em></strong> Contact Info</span></a>
+            <a href="#" onClick={handleTsContactInfoOpen}><img src="/feather-black/clock.svg" alt="clock icon"/> <span>Timesheet Contact Info</span></a>
         </span>
-        <ReactModal isOpen={openModal !== ModalState.CLOSED} onRequestClose={handleContactInfoClose}>
-          {openModal === ModalState.TIMESHEET ? <TimesheetContact/> : <SeceContactInfo data={data}/>}
+        <ReactModal isOpen={modalState !== ModalState.CLOSED} onRequestClose={handleContactInfoClose}>
+          {modalState === ModalState.TIMESHEET ? <TimesheetContact/> : <SeceContactInfo data={data}/>}
         </ReactModal>
       </section>
     )
